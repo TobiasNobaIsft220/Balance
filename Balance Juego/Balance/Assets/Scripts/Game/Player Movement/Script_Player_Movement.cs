@@ -1,13 +1,15 @@
 using UnityEngine;
 
-public class HayBallController : MonoBehaviour
+public class Script_Player_Movement : MonoBehaviour
 {
     public float moveForce = 10f; 
     private Rigidbody rb;
 
     void Start()
     {
+        Time.timeScale = 1f;
         rb = GetComponent<Rigidbody>();
+        rb.WakeUp();
     }
 
     void FixedUpdate()
