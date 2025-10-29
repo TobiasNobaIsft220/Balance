@@ -8,8 +8,8 @@ public class Script_Game_Over : MonoBehaviour
 
     public void MostrarGameOver()
     {
-        gameOverPanel.SetActive(true);
         Time.timeScale = 0f;
+        gameOverPanel.SetActive(true);
     }
 
     public void Reintentar()

@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 226488018}
   - component: {fileID: 226488017}
   m_Layer: 0
-  m_Name: Valla (2)
+  m_Name: Fence 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -337,7 +337,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 235368178}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 5a7ad3a1841389743bbf81bf173e4f48, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -416,7 +416,7 @@ Transform:
   m_GameObject: {fileID: 235368178}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.02, y: 0.78, z: -5.63}
+  m_LocalPosition: {x: 5.02, y: 0.5, z: -5.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -434,7 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5beb30002a7bc8e49ac3e67beb3a2a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  moveForce: 50
+  moveForce: 25
 --- !u!54 &235368184
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -475,7 +475,7 @@ GameObject:
   - component: {fileID: 306460353}
   - component: {fileID: 306460352}
   m_Layer: 0
-  m_Name: Valla
+  m_Name: Fence 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -659,8 +659,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0030373838, y: -0.9123191, z: 0.40940034, w: -0.007489264}
-  m_LocalPosition: {x: 5.3595176, y: 10.380027, z: 5.823884}
+  m_LocalRotation: {x: -0.00046523055, y: -0.9347233, z: 0.35537034, w: -0.0020462498}
+  m_LocalPosition: {x: 5.065776, y: 8.5729065, z: 5.932647}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -895,7 +895,7 @@ GameObject:
   - component: {fileID: 734391584}
   - component: {fileID: 734391583}
   m_Layer: 0
-  m_Name: Valla (3)
+  m_Name: Fence 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1152,7 +1152,7 @@ Transform:
   m_GameObject: {fileID: 923359210}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.02, y: 2.1499999, z: -5.63}
+  m_LocalPosition: {x: 5.02, y: 1.9, z: -5.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1207,8 +1207,8 @@ ConfigurableJoint:
   m_AngularYMotion: 1
   m_AngularZMotion: 1
   m_LinearLimitSpring:
-    spring: 0
-    damper: 0
+    spring: 60
+    damper: 40
   m_LinearLimit:
     limit: 0
     bounciness: 0
@@ -1239,20 +1239,20 @@ ConfigurableJoint:
   m_TargetVelocity: {x: 0, y: 0, z: 0}
   m_XDrive:
     serializedVersion: 4
-    positionSpring: 0
-    positionDamper: 0
+    positionSpring: 80
+    positionDamper: 40
     maximumForce: 3.4028233e+38
     useAcceleration: 0
   m_YDrive:
     serializedVersion: 4
-    positionSpring: 0
-    positionDamper: 0
+    positionSpring: 80
+    positionDamper: 40
     maximumForce: 3.4028233e+38
     useAcceleration: 0
   m_ZDrive:
     serializedVersion: 4
-    positionSpring: 0
-    positionDamper: 0
+    positionSpring: 80
+    positionDamper: 40
     maximumForce: 3.4028233e+38
     useAcceleration: 0
   m_TargetRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -1627,7 +1627,7 @@ GameObject:
   - component: {fileID: 1377769219}
   - component: {fileID: 1377769218}
   m_Layer: 0
-  m_Name: Valla (1)
+  m_Name: Fence 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2007,7 +2007,7 @@ GameObject:
   - component: {fileID: 1795071746}
   - component: {fileID: 1795071745}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Barn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2098,13 +2098,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795071744}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.3860385, z: -0, w: 0.9224827}
-  m_LocalPosition: {x: -14.42, y: 5, z: -7.03}
-  m_LocalScale: {x: 10, y: 10, z: 15}
+  m_LocalRotation: {x: 0, y: -0.3873547, z: 0, w: 0.9219308}
+  m_LocalPosition: {x: -4.33, y: 5, z: -16.63}
+  m_LocalScale: {x: 10, y: 10, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 45.416, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -45.58, z: 0}
 --- !u!1 &1803253518
 GameObject:
   m_ObjectHideFlags: 0
@@ -2389,7 +2389,6 @@ GameObject:
   - component: {fileID: 2075652141}
   - component: {fileID: 2075652140}
   - component: {fileID: 2075652139}
-  - component: {fileID: 2075652143}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -2489,18 +2488,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2075652143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2075652138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc233d57a3b13fb4aadcdd1b06661fd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!1 &2098540979
 GameObject:
   m_ObjectHideFlags: 0

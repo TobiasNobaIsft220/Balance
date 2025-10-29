@@ -1,17 +1,18 @@
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Script_Menu : MonoBehaviour
 {
 
-    public void Jugar(string empezarJuego)
+    public void Jugar(string empezarPartida)
     {
-        SceneManager.LoadScene(empezarJuego);
+        SceneManager.LoadScene(empezarPartida);
     }
+    
     public void Salir()
     {
-        Application.Quit();
-
         Debug.Log("Se salio del juego");
+        Application.Quit();
     }
 }
