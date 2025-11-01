@@ -4,10 +4,22 @@ using UnityEngine.SceneManagement;
 
 public class Script_Menu : MonoBehaviour
 {
-
-    public void Jugar(string empezarPartida)
+    void Update()
     {
-        SceneManager.LoadScene(empezarPartida);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Jugar();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Salir();
+        }
+    }
+
+    public void Jugar()
+    {
+        SceneManager.LoadScene("Game Scene");
     }
     
     public void Salir()
