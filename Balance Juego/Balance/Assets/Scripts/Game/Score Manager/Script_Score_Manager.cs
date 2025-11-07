@@ -23,7 +23,9 @@ public class Script_Score_Manager : MonoBehaviour
         {
             score += pointsPerSecond * Time.deltaTime;
             if (scoreText != null)
+            {
                 scoreText.text = "Puntuación: " + Mathf.FloorToInt(score).ToString();
+            }
         }
     }
 
