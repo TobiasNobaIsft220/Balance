@@ -21,7 +21,7 @@ public class Script_Horse_Balance : MonoBehaviour
     void Update()
     {
         
-        if(Vector3.Angle(transform.up, Vector3.up) > 90f)
+        if(Vector3.Angle(transform.up, Vector3.up) > 85f)
         {
             
             // Si hay un menú de pausa, lo desactiva

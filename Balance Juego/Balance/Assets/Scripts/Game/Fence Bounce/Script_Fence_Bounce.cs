@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Script_Fence_Bounce : MonoBehaviour
 {
-    public float pushForce = 400f; // fuerza con la que empuja hacia el centro
+    public float pushForce = 10f; // fuerza con la que empuja hacia el centro
     private Vector3 corralCenter = new Vector3(5, 0, -5); // centro del corral
 
     private void OnCollisionEnter(Collision collision)
