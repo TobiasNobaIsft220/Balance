@@ -1,12 +1,12 @@
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Script_Menu : MonoBehaviour
 {
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
             Jugar();
         }
@@ -21,7 +21,7 @@ public class Script_Menu : MonoBehaviour
     {
         SceneManager.LoadScene("Game Scene");
     }
-    
+
     public void Salir()
     {
         Debug.Log("Se salio del juego");
