@@ -37,11 +37,10 @@ body{
     width: 20vh;
     background-color: #f8b874; /* Fondo semitransparente */
     color: #2c2d2c;
-    padding: 10px 20px;
     cursor: pointer;
     z-index: 1; /* Asegura que el botón esté por encima del GIF */
     border-radius: 2vh;
-    border: 4px solid #5d2907;
+    border: 2px solid #2c2d2c;
 }
 
 
@@ -60,6 +59,8 @@ body{
     align-items: center;
     margin: 4vh;
     background-color: #f8b874;
+    border-radius: 2vh;
+    border: 2px solid #2c2d2c;
 }
 
 /*Footer*/
