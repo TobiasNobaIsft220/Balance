@@ -1,0 +1,50 @@
+
+.fondoGifYDescarga{
+    display: flex;
+    justify-content: center;
+}
+
+.contenedorGifYDescarga{
+    height: 80vh;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4vh;
+    background-color: #f8b874;
+    border-radius: 2vh;
+    border: 2px solid #2c2d2c;
+}
+
+.gifJuegoBalance{
+    display: block;
+    height: 70vh;
+    width: 95%;
+}
+
+.logoJuegoBalance{
+    height: 50vh;
+    width: auto;
+    position: absolute; /* Posiciona el botón sobre el GIF */
+    top: 38%; /* Centra verticalmente */
+    left: 50%; /* Centra horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta el centrado para que el botón quede perfectamente en el medio */
+    border: none;
+    z-index: 1; /* Asegura que el botón esté por encima del GIF */
+    border-radius: 2vh;
+}
+
+.botonDescargar{
+    height: 10vh;
+    width: 20vh;
+    position: absolute; /* Posiciona el botón sobre el GIF */
+    top: 75%; /* Centra verticalmente */
+    left: 75%; /* Centra horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta el centrado para que el botón quede perfectamente en el medio */
+    background-color: #f8b874; /* Fondo semitransparente */
+    color: #2c2d2c;
+    cursor: pointer;
+    z-index: 1; /* Asegura que el botón esté por encima del GIF */
+    border-radius: 2vh;
+    border: 2px solid #2c2d2c;
+}
