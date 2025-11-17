@@ -2,8 +2,11 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
+import path from "path";  
 
-dotenv.config();
+dotenv.config({
+    path: path.resolve("src/backEnd/.env")
+});
 
 const app = express();
 app.use(cors());
@@ -17,4 +20,4 @@ app.get("/", (req, res) => {
     res.send("API funcionando con ESM");
 });
 
-app.listen(PORT, () => console.log("Servidor listo en el puerto " + PORT));
+app.listen(process.env.PORT, () => console.log("Servidor listo en el puerto " + process.env.PORT));
