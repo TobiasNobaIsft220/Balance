@@ -1,16 +1,29 @@
-import 'Footer.css';
+import './Footer.css'
 
 export function Footer(){
     return(
-        <footer className="footer">
-        <div>
-            <h3>Creadores:</h3>
-        </div>
+        <>
+            <footer className="footer">
+                <div className="footerCreadores">
+                    <table className='tablaCreadores'>
+                        <tr>
+                            <th>Creadores:</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="">Tobbie</a>
+                            </td>
+                        </tr>
 
-        <div className="footerCreadores">
-            <a href="http://youtube.com/@tobbieGD">Tobias Noba</a>
-            <a href="https://chatgpt.com/">Chat gpt</a>
-        </div>
-    </footer>
+                        <tr>
+                            <td>
+                                <a href="">Chat GPT</a>
+                            </td>
+                        </tr>
+                        
+                    </table>
+                </div>
+            </footer>
+        </>
     );
 }

@@ -1,11 +1,16 @@
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 import './App.css';
-import {Home} from './content/Home/Home'
+import {Home} from './content/Home/Home';
+import {LeaderBoard} from './content/LeaderBoard/LeaderBoard';
+import {Login} from './content/Login/Login';
+import {Register} from './content/Register/Register';
 
 function Pagina() {
 
   return (
-    <Outlet/>
+    <>
+      <Outlet/>
+    </>
   )
 }
 const router = createBrowserRouter([
@@ -19,8 +24,20 @@ const router = createBrowserRouter([
         element: <Home/>
       },
       {
+        path: 'home',
+        element: <Home/>
+      },
+      {
+        path: 'clasificaciones',
+        element: <LeaderBoard/>
+      },
+      {
         path: 'iniciar-sesion',
-        /*element: {/*login*/
+        element: <Login/>
+      },
+      {
+        path: 'crear-cuenta',
+        element: <Register/>
       }
     ]
   }

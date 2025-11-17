@@ -1,0 +1,29 @@
+.fondoLeaderBoard{
+    height: 100vh;
+}
+
+.contenedorLeaderBoard{
+   display: flex;
+   justify-content: center;
+}
+
+.tablaLeaderBoard{
+    height: auto;
+    width: 80%;
+    margin: 2vh;
+    border-collapse: collapse;
+    border: 2px solid #2c2d2c;
+    background-color: #f8b874;
+}
+
+.tablaLeaderBoard th{
+    border: #2c2d2c solid 1px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    
+}
+
+.tablaLeaderBoard td{
+    text-align: center;
+    border: #2c2d2c solid 1px;
+}
