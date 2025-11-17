@@ -120,7 +120,11 @@ MonoBehaviour:
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   controlID: 119
+=======
+  controlID: 49
+>>>>>>> Stashed changes
 =======
   controlID: 49
 >>>>>>> Stashed changes
@@ -200,6 +204,9 @@ MonoBehaviour:
 =======
     width: 260
     height: 415
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   m_MinSize: {x: 201, y: 226}
   m_MaxSize: {x: 4001, y: 4026}
@@ -231,6 +238,9 @@ MonoBehaviour:
 =======
     width: 727
     height: 415
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   m_MinSize: {x: 202, y: 226}
   m_MaxSize: {x: 4002, y: 4026}
@@ -291,6 +301,9 @@ MonoBehaviour:
 =======
     width: 373
     height: 629
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   m_MinSize: {x: 276, y: 76}
   m_MaxSize: {x: 4001, y: 4026}
@@ -444,7 +457,11 @@ MonoBehaviour:
       m_SelectedIDs: 
       m_LastClickedID: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       m_ExpandedIDs: 8ad6ffffa2d6ffffb6daffff9edbffff14fbffffa6ad0000b2ad0000
+=======
+      m_ExpandedIDs: 14fbffff
+>>>>>>> Stashed changes
 =======
       m_ExpandedIDs: 14fbffff
 >>>>>>> Stashed changes
@@ -1151,6 +1168,9 @@ MonoBehaviour:
     m_SelectedIDs: 92af0000
     m_LastClickedID: 44946
     m_ExpandedIDs: 000000001caf00001eaf000020af000022af000024af000026af0000
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1181,7 +1201,11 @@ MonoBehaviour:
     m_SelectedIDs: 7e020000
     m_LastClickedID: 638
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     m_ExpandedIDs: 0000000018af0000
+=======
+    m_ExpandedIDs: 000000001caf00001eaf000020af000022af000024af000026af0000
+>>>>>>> Stashed changes
 =======
     m_ExpandedIDs: 000000001caf00001eaf000020af000022af000024af000026af0000
 >>>>>>> Stashed changes
