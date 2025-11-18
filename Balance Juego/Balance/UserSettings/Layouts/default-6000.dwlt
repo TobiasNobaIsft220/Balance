@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 772.8
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,15 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  controlID: 119
-=======
-  controlID: 49
->>>>>>> Stashed changes
-=======
-  controlID: 49
->>>>>>> Stashed changes
+  controlID: 121
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -198,16 +190,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-<<<<<<< Updated upstream
     width: 293.6
     height: 472.8
-=======
-    width: 260
-    height: 415
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
   m_MinSize: {x: 201, y: 226}
   m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 13}
@@ -232,16 +216,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 293.6
     y: 0
-<<<<<<< Updated upstream
     width: 821.6
     height: 472.8
-=======
-    width: 727
-    height: 415
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
   m_MinSize: {x: 202, y: 226}
   m_MaxSize: {x: 4002, y: 4026}
   m_ActualView: {fileID: 12}
@@ -295,16 +271,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1115.2
     y: 0
-<<<<<<< Updated upstream
     width: 420.80005
     height: 716.8
-=======
-    width: 373
-    height: 629
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
   m_MinSize: {x: 276, y: 76}
   m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 18}
@@ -456,15 +424,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-      m_ExpandedIDs: 8ad6ffffa2d6ffffb6daffff9edbffff14fbffffa6ad0000b2ad0000
-=======
-      m_ExpandedIDs: 14fbffff
->>>>>>> Stashed changes
-=======
-      m_ExpandedIDs: 14fbffff
->>>>>>> Stashed changes
+      m_ExpandedIDs: 64b1ffff7cb1ffff72b5ffff3cb6fffff4bfffffd6c2ffffaecbfffffeceffff0ed1ffff4af6ffff14fbffff7ab50000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -510,10 +470,10 @@ MonoBehaviour:
     m_TextWithWhitespace: "Scene\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 259
-    y: 79
-    width: 730
-    height: 389
+    x: 293.6
+    y: 79.200005
+    width: 819.6
+    height: 446.8
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -970,9 +930,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 6.6428885, y: 3.1757185, z: -1.7239004}
+    m_Target: {x: -2.4178724, y: -12.884637, z: -13.632832}
     speed: 2
-    m_Value: {x: 6.6428885, y: 3.1757185, z: -1.7239004}
+    m_Value: {x: -2.4178724, y: -12.884637, z: -13.632832}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1018,13 +978,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.482
   m_Rotation:
-    m_Target: {x: 0.04195997, y: -0.9504593, z: 0.14530501, w: 0.27194014}
+    m_Target: {x: -0.18304037, y: 0.81610835, z: -0.3662282, w: -0.40790635}
     speed: 2
-    m_Value: {x: -0.041955806, y: 0.95036495, z: -0.14529058, w: -0.27191314}
+    m_Value: {x: -0.18303604, y: 0.8160891, z: -0.36621955, w: -0.40789673}
   m_Size:
-    m_Target: 7.7619762
+    m_Target: 16.03087
     speed: 2
-    m_Value: 7.7619762
+    m_Value: 16.03087
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1141,7 +1101,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Images/Game Icon
+    - Assets/Scenes
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1151,27 +1111,17 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Images/Game Icon
+  - Assets/Scenes
   m_LastFoldersGridSize: 16
   m_LastProjectPath: "C:\\Users\\pc7\\Desktop\\Tobias Noba 2do a\xF1o\\Proyecto Balance\\Balance\\Balance
     Juego\\Balance"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-<<<<<<< Updated upstream
-    scrollPos: {x: 0, y: 41.999878}
-    m_SelectedIDs: 68b10000
-    m_LastClickedID: 45416
-    m_ExpandedIDs: 0000000018af00007aaf00008aaf0000d8af0000daaf000000ca9a3bffffff7f
-=======
-    scrollPos: {x: 0, y: 32}
-    m_SelectedIDs: 92af0000
-    m_LastClickedID: 44946
-    m_ExpandedIDs: 000000001caf00001eaf000020af000022af000024af000026af0000
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: 6aaf0000
+    m_LastClickedID: 44906
+    m_ExpandedIDs: 0000000022af000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1200,15 +1150,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 7e020000
     m_LastClickedID: 638
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    m_ExpandedIDs: 0000000018af0000
-=======
-    m_ExpandedIDs: 000000001caf00001eaf000020af000022af000024af000026af0000
->>>>>>> Stashed changes
-=======
-    m_ExpandedIDs: 000000001caf00001eaf000020af000022af000024af000026af0000
->>>>>>> Stashed changes
+    m_ExpandedIDs: 0000000022af0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1236,7 +1178,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000b4ae0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1288,9 +1230,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 494
-    width: 986
-    height: 188
+    y: 552
+    width: 1114.2
+    height: 218
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
