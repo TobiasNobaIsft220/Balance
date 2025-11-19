@@ -35,23 +35,23 @@ export function LeaderBoard(){
 
                         <tr>
                             <td>
-                                Posición:
+                                1
                             </td>
                             
                             <td>
-                                Nombre de usuario:
+                                Tobbie
                             </td>
 
                             <td>
-                                Mejor puntuacion:
+                                1238
                             </td>
 
                             <td>
-                                Ultima puntuación:
+                                103
                             </td>
 
                             <td>
-                                Partidas jugadas:
+                                21
                             </td>
                         </tr>
                     </table>
