@@ -1,22 +1,27 @@
 //Importa el modelo del usuario
-import User from "/models/User.js";
+import User from "../models/User.js";
 
 //Crea la funcion/metodo para registrar usuarios
-export const registrarUsuario = async (req, res) => {
+export const registerUser = async (req, res) => {
     try {
 
         //Trae la informacion de los inputs del body
-        const { nombreDeUsuario, email, contraseña } = req.body;
+        const { name, email, password, confirmPassword } = req.body;
 
         // Validaciones básicas
-        if (!nombreDeUsuario || !email || !contraseña) {
+        if (!name || !email || !password || !confirmPassword) {
             return res.status(400).json({ message: "Faltan datos obligatorios" });
+        }
+
+        // Validar contraseñas iguales
+        if (password !== confirmPassword) {
+            return res.status(400).json({ message: "Las contraseñas no coinciden" });
         }
 
         // Ver si ya existe
         const existeEmail = await User.findOne({ email });
         if (existeEmail) {
-            return res.status(400).json({ message: "El email ya está registrado" });
+            return res.status(400).json({ message: "Ya existe una cuenta creada con ese Email" });
         }
 
         // Generar ID incremental
@@ -25,17 +30,17 @@ export const registrarUsuario = async (req, res) => {
 
         const nuevoUsuario = new User({
             id: nuevoId,
-            nombreDeUsuario,
+            name,
             email,
-            contraseña,
-            mejorPuntaje: 0,
-            ultimoPuntaje: 0,
-            partidasJugadas: 0
+            password,
+            bestScore: 0,
+            lastScore: 0,
+            gamesPlayed: 0
         });
 
         await nuevoUsuario.save();
 
-        res.status(201).json({ message: "Usuario creado exitosamente", usuario: nuevoUsuario });
+        res.status(201).json({ message: "Usuario creado exitosamente", Users: nuevoUsuario });
 
     } catch (error) {
         res.status(500).json({ message: "Error del servidor", error });
@@ -43,7 +48,7 @@ export const registrarUsuario = async (req, res) => {
 };
 
 //Crea la funcion/metodo para registrar usuarios
-export const loginusuario = async (req, res) => {
+export const loginUsuario = async (req, res) => {
     try{
         const {email, contraseña} = req.body;
 
@@ -66,11 +71,10 @@ export const loginusuario = async (req, res) => {
 //Crea la funcion/metodo para mostrar los usuarios
 export const obtenerUsuarios = async (req, res) =>{
     try{
-        const usuario = await User.find();
+        const usuarios = await User.find();
         res.status(200).json(usuarios);
         
     }catch(error){
         res.status(500).json({message: "Error del servidor", error})
     }
 };
-

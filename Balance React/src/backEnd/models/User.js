@@ -2,12 +2,12 @@ import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
     id: {type: Number},
-    nombreDeUsuario: {type: String},
+    name: {type: String},
     email: {type: String},
-    contraseña: {type: String},
-    mejorPuntaje: {type: Number},
-    ultimoPuntaje: {type: Number},
-    partidasJugadas: {type: Number}
-});
+    password: {type: String},
+    bestScore: {type: Number},
+    lastScore: {type: Number},
+    gamesPlayed: {type: Number}
+}, {collection: "Users"});
 
 export default mongoose.model("User", userSchema);
