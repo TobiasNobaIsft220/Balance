@@ -2,6 +2,7 @@ import './Register.css';
 import {Header} from '../../components/Header/Header';
 import {Footer} from '../../components/Footer/Footer';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export function Register(){
 
@@ -10,7 +11,11 @@ export function Register(){
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
-    const registerUserReact = async () => {
+    const navigate = useNavigate();
+
+    const registerUserReact = async (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+
         const respuesta = await fetch("http://localhost:3000/api/usuarios/registrar", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
@@ -20,6 +25,14 @@ export function Register(){
         const data = await respuesta.json();
         console.log(data);
         alert(data.message);
+
+        if(respuesta.ok){
+
+            localStorage.setItem("token", data.token);
+            localStorage.setItem("usuario", JSON.stringify(data.usuario));
+
+            navigate("/home");
+        }
 
     }
 
@@ -68,7 +81,7 @@ export function Register(){
                             <br/>
                             <br/>
 
-                            <button className="botonRegister" onClick={(e) => {e.preventDefault(); registerUserReact();}}>Crear cuenta</button>
+                            <button className="botonRegister" onClick={registerUserReact}>Crear cuenta</button>
                         </form>
                     </div>
                 </div>

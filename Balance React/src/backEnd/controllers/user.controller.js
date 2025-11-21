@@ -1,6 +1,12 @@
 //Importa el modelo del usuario
 import User from "../models/User.js";
 
+import jwt from "jsonwebtoken";
+
+import dotenv from "dotenv";
+
+dotenv.config();
+
 //Crea la funcion/metodo para registrar usuarios
 export const registerUser = async (req, res) => {
     try {
@@ -40,7 +46,17 @@ export const registerUser = async (req, res) => {
 
         await nuevoUsuario.save();
 
-        res.status(201).json({ message: "Usuario creado exitosamente", Users: nuevoUsuario });
+        const token = jwt.sign(
+            {id: nuevoUsuario.id},
+            process.env.JWT_SECRET,
+            {expiresIn: "7d"}
+        );
+
+        res.status(201).json({
+            message: "Usuario creado exitosamente",
+            usuario: nuevoUsuario,
+            token
+        });
 
     } catch (error) {
         res.status(500).json({ message: "Error del servidor", error });
@@ -48,9 +64,9 @@ export const registerUser = async (req, res) => {
 };
 
 //Crea la funcion/metodo para registrar usuarios
-export const loginUsuario = async (req, res) => {
+export const loginUser = async (req, res) => {
     try{
-        const {email, contraseña} = req.body;
+        const {email, password} = req.body;
 
         const usuario = await User.findOne({email});
 
@@ -58,11 +74,13 @@ export const loginUsuario = async (req, res) => {
             return res.status(404).json({message: "Usuario no encontrado"});
         }
 
-        if(usuario.contraseña !== contraseña){
+        if(usuario.password !== password){
             return res.status(400).json({message: "Contraseña incorrecta"});
         }
 
         res.status(200).json({message: "Login exitoso", usuario});
+
+
     }catch (error){
         res.status(500).json({message: "Error en el servidor", error});
     }
