@@ -16,7 +16,7 @@ export function Register(){
     const registerUserReact = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
 
-        const respuesta = await fetch("http://localhost:3000/api/usuarios/registrar", {
+        const respuesta = await fetch("http://localhost:3000/api/register", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({name, email, password, confirmPassword})

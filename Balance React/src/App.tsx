@@ -4,6 +4,7 @@ import {Home} from './content/Home/Home';
 import {LeaderBoard} from './content/LeaderBoard/LeaderBoard';
 import {Login} from './content/Login/Login';
 import {Register} from './content/Register/Register';
+import { Account } from './content/Account/Account';
 
 function Pagina() {
 
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: 'crear-cuenta',
         element: <Register/>
+      },
+      {
+        path: 'cuenta',
+        element: <Account/>
       }
     ]
   }

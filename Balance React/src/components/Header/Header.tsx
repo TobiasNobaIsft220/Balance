@@ -1,35 +1,44 @@
 import './header.css';
 import { useState, useEffect } from 'react';
 
+interface UsuarioProp {
+    id: number,
+    name: string,
+    email: string,
+    password: string,
+    bestScore: number,
+    lastScore: number,
+    gamesPlayed: number
+}
+
 export function Header(){
 
-    const [usuario, setUsuario] = useState<any>(null);
+    const [usuario, setUsuario] = useState<UsuarioProp | null>(null);
 
     useEffect(() =>{
         const token = localStorage.getItem("token");
 
-        if(token){
-            obtenerPerfil(token);
+        if(!token){
+            return;
         }
-    }, []);
 
+        const obtenerPerfil = async () =>{
+            const res = await fetch("http://localhost:3000/api/perfil", {
+                headers: {
+                    Authorization: "Bearer " + token
+                }
+            });
 
-    const obtenerPerfil = async (token: string) =>{
-        const res = await fetch("http://localhost:3000/api/perfil", {
-            headers: {
-                authorization: "Bearer " + token
-            }
-        });
-
-        if(res.ok){
             const data = await res.json();
-            setUsuario(data.usuario);
-        }else{
-            setUsuario(null);
-            localStorage.removeItem("token");
-        }
-    }
 
+            if(data.usuario){
+                setUsuario(data.usuario);
+            }
+        };
+
+        obtenerPerfil();
+
+    }, []);
 
     return(
         <>
@@ -45,7 +54,7 @@ export function Header(){
                             <a href="home"><button className="botonNav">Home</button></a>
                             <a href="clasificaciones"><button className="botonNav">Clasificaciones</button></a>
 
-                            <a href="">lollllllllllllllllllllll</a>
+                            <a href="cuenta" ><button className='botonNav'><img className='iconUser' src="../../../img/User-Icon.png" alt="User-Icon"/></button></a>
 
                         </nav>
 

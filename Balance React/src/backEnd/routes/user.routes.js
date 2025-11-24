@@ -1,24 +1,26 @@
 import express from "express";
-import { registerUser, loginUser, obtenerUsuarios } from "../controllers/user.controller.js";
-import { verfyToken } from "../middleware/verifyToken.js";
+import { showUsers, registerUser, loginUser, leaderBoard } from "../controllers/user.controller.js";
+import { verifyToken } from "../middleware/verifyToken.js";
 import User from "../models/User.js";
 
 
 const router = express.Router();
 
-router.post("/registrar", registerUser);
+router.get("/users", showUsers);
+
+router.post("/register", registerUser);
 
 router.post("/login", loginUser);
 
-router.get("/perfil", verfyToken, async (req, res) =>{
+router.get("/score", leaderBoard);
+
+router.get("/perfil", verifyToken, async (req, res) =>{
     try{
         const usuario = await User.findOne({id: req.usuario.id});
         res.json({usuario});
     }catch(error){
         res.status(500).json({message: "error al obtener el perfil"});
     }
-})
-
-router.get("/", obtenerUsuarios);
+});
 
 export default router;

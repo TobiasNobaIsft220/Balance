@@ -4,7 +4,8 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-export function verfyToken(req, res, next){
+export function verifyToken(req, res, next){
+    
     const authHeader = req.headers.authorization;
 
     if(!authHeader){

@@ -22,7 +22,7 @@ app.use(cors());
 app.use(express.json());
 
 //Definicion de las rutas de las APIs
-app.use("/api/usuarios", userRouter);
+app.use("/api/", userRouter);
 
 //Conecta a mi base de datos en Mongo Atlas. Si no se puede conectar me manda el error  a la consola
 mongoose.connect(MONGODB_URI)

@@ -7,6 +7,17 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+//Crea la funcion/metodo para mostrar los usuarios
+export const showUsers = async (req, res) =>{
+    try{
+        const usuarios = await User.find();
+        res.json(usuarios);
+        
+    }catch(error){
+        res.status(500).json({message: "Error del servidor", error})
+    }
+};
+
 //Crea la funcion/metodo para registrar usuarios
 export const registerUser = async (req, res) => {
     try {
@@ -17,6 +28,12 @@ export const registerUser = async (req, res) => {
         // Validaciones básicas
         if (!name || !email || !password || !confirmPassword) {
             return res.status(400).json({ message: "Faltan datos obligatorios" });
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailRegex.test(email)) {
+            return res.status(400).json({ message: "El email no es válido" });
         }
 
         // Validar contraseñas iguales
@@ -54,8 +71,12 @@ export const registerUser = async (req, res) => {
 
         res.status(201).json({
             message: "Usuario creado exitosamente",
-            usuario: nuevoUsuario,
-            token
+            token,
+            usuario: {
+                id: nuevoUsuario.id,
+                nombreDeUsuario: nuevoUsuario.name,
+                email: nuevoUsuario.email
+            }
         });
 
     } catch (error) {
@@ -78,21 +99,35 @@ export const loginUser = async (req, res) => {
             return res.status(400).json({message: "Contraseña incorrecta"});
         }
 
-        res.status(200).json({message: "Login exitoso", usuario});
+        const token = jwt.sign(
+            { id: usuario.id },
+            process.env.JWT_SECRET,
+            { expiresIn: "7d" }
+        );
 
+        res.json({
+            message: "Sesión iniciada",
+            token,
+            usuario: {
+                id: usuario.id,
+                nombreDeUsuario: usuario.name,
+                email: usuario.email
+            }
+        });
 
     }catch (error){
         res.status(500).json({message: "Error en el servidor", error});
     }
 };
 
-//Crea la funcion/metodo para mostrar los usuarios
-export const obtenerUsuarios = async (req, res) =>{
+export const leaderBoard = async (req, res) =>{
     try{
-        const usuarios = await User.find();
-        res.status(200).json(usuarios);
-        
-    }catch(error){
-        res.status(500).json({message: "Error del servidor", error})
+        const ranking = await User.find()
+        .sort({bestScore: -1})
+        .select("name bestScore lastScore gamesPlayed");
+
+        res.json(ranking);
+    }catch (error){
+        res.status(500).json({message: "Error al obtener el leaderboard"})
     }
-};
+}

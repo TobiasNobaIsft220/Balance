@@ -2,14 +2,19 @@ import './Login.css';
 import {Header} from '../../components/Header/Header';
 import {Footer} from '../../components/Footer/Footer';
 import {useState} from "react";
+import { useNavigate } from 'react-router-dom';
 
 export function Login(){
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const loginUserReact = async () => {
-        const respuesta = await fetch("http://localhost:3000/api/usuarios/login", {
+    const Navigate = useNavigate();
+
+    const loginUserReact = async (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+
+        const respuesta = await fetch("http://localhost:3000/api/login", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({ email, password})
@@ -18,6 +23,11 @@ export function Login(){
         const data = await respuesta.json();
         console.log(data);
         alert(data.message);
+
+        if (data.token) {
+        localStorage.setItem("token", data.token);
+        Navigate("/")
+        }
 
     }
 
@@ -53,7 +63,7 @@ export function Login(){
                             <br/>
                             <br/>
 
-                            <button className="botonLogin" onClick={(e) => {e.preventDefault(); loginUserReact();}}>Iniciar sesión</button>
+                            <button className="botonLogin" onClick={loginUserReact}>Iniciar sesión</button>
                         </form>
                     </div>
 
