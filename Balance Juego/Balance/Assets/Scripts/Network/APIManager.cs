@@ -10,12 +10,12 @@ public class APIManager : MonoBehaviour
     private string URL_BASE = "http://localhost:3000/api/";
 
     [Header("Usuario Logeado")]
-    public int idUsuario;
-    public string emailUsuario;
-    public string nombreUsuario;
-    public int mejorPuntaje;
-    public int ultimoPuntaje;
-    public int partidasJugadas;
+    public int id;
+    public string email;
+    public string name;
+    public int bestScore;
+    public int lastScore;
+    public int gamesPlayed;
 
     void Awake()
     {
@@ -58,15 +58,15 @@ public class APIManager : MonoBehaviour
             }
             else
             {
-                idUsuario = data.usuario.id;
-                nombreUsuario = data.usuario.name;
-                emailUsuario = data.usuario.email;
-                mejorPuntaje = data.usuario.bestScore;
-                ultimoPuntaje = data.usuario.lastScore;
-                partidasJugadas = data.usuario.gamesPlayed;
+                id = data.usuario.id;
+                name = data.usuario.name;
+                email = data.usuario.email;
+                bestScore = data.usuario.bestScore;
+                lastScore = data.usuario.lastScore;
+                gamesPlayed = data.usuario.gamesPlayed;
 
                 // Guardar sesión en PlayerPrefs
-                PlayerPrefs.SetInt("usuarioActivo", idUsuario);
+                PlayerPrefs.SetInt("usuarioActivo", id);
 
                 callback(true, "Login exitoso");
             }
@@ -138,7 +138,7 @@ public class APIManager : MonoBehaviour
     public IEnumerator ActualizarMejorPuntaje(int nuevoScore, Action<bool> callback)
     {
         WWWForm form = new WWWForm();
-        form.AddField("id", idUsuario);
+        form.AddField("id", id);
         form.AddField("mejorPuntaje", nuevoScore);
 
         UnityWebRequest www = UnityWebRequest.Post(URL_BASE + "mejorPuntaje", form);
@@ -165,8 +165,5 @@ public class Usuario
     public int id;
     public string name;
     public string email;
-    public int bestScore;
-    public int lastScore;
-    public int gamesPlayed;
 }
 

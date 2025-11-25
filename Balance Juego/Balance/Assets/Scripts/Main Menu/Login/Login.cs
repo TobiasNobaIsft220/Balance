@@ -18,7 +18,7 @@ public class LoginUI : MonoBehaviour
 
             if (ok)
             {
-                UnityEngine.SceneManagement.SceneManager.LoadScene("Home");
+                UnityEngine.SceneManagement.SceneManager.LoadScene("Menu Scene");
             }
         }));
     }
