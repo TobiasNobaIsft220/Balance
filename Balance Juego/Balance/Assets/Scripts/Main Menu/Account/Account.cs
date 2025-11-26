@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-public class Acount : MonoBehaviour
+public class Account : MonoBehaviour
 {
     public TMP_Text nombre;
 
@@ -15,6 +15,10 @@ public class Acount : MonoBehaviour
     {
         StartCoroutine(APIManager.instancia.CargarPerfil( (resp) =>
         {
+            Debug.Log("resp: " + resp);
+
+            Debug.Log("resp.name: " + resp.name);
+
             if(resp != null && resp.name != null)
             {
                 nombre.text = $"Nombre: {resp.name}";

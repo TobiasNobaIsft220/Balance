@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 
+
 public class LoginUI : MonoBehaviour
 {
     public TMP_InputField emailInput;
@@ -10,6 +11,14 @@ public class LoginUI : MonoBehaviour
     public GameObject accountButton;
 
     public GameObject loginButton;
+
+    void Start()
+    {
+        if(accountButton != null && loginButton)
+        {
+            AutoLogin();
+        }
+    }
 
     public void OnLoginButton()
     {
@@ -32,5 +41,31 @@ public class LoginUI : MonoBehaviour
                 mensaje.text = "Error al iniciar sesion: Email o contraseña incorrectos." ;
             }
         }));
+    }
+
+    public void AutoLogin()
+    {
+        string token = PlayerPrefs.GetString("token", "");
+
+        if(token != "")
+        {
+            Debug.Log("Usuario logeado: " + PlayerPrefs.GetString("username"));
+            loginButton.SetActive(false);
+            accountButton.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("No hay sesion guardada");
+        }
+    }
+
+    public void LogOut()
+    {
+        PlayerPrefs.DeleteKey("token");
+        PlayerPrefs.DeleteKey("username");
+        PlayerPrefs.Save();
+        Debug.Log("Sesion cerrada correctamente.");
+        loginButton.SetActive(true);
+        accountButton.SetActive(false);
     }
 }
