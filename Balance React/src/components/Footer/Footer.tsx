@@ -17,7 +17,6 @@ export function Footer(){
 
                         <tr>
                             <td>
-                                <a href="">Chat GPT</a>
                             </td>
                         </tr>
                         

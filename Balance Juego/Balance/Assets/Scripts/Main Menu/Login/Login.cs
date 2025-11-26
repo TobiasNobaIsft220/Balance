@@ -12,14 +12,6 @@ public class LoginUI : MonoBehaviour
 
     public GameObject loginButton;
 
-    void Start()
-    {
-        if(accountButton != null && loginButton)
-        {
-            AutoLogin();
-        }
-    }
-
     public void OnLoginButton()
     {
         string email = emailInput.text;
@@ -41,22 +33,6 @@ public class LoginUI : MonoBehaviour
                 mensaje.text = "Error al iniciar sesion: Email o contraseña incorrectos." ;
             }
         }));
-    }
-
-    public void AutoLogin()
-    {
-        string token = PlayerPrefs.GetString("token", "");
-
-        if(token != "")
-        {
-            Debug.Log("Usuario logeado: " + PlayerPrefs.GetString("username"));
-            loginButton.SetActive(false);
-            accountButton.SetActive(true);
-        }
-        else
-        {
-            Debug.Log("No hay sesion guardada");
-        }
     }
 
     public void LogOut()

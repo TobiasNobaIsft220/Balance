@@ -15,9 +15,6 @@ public class Account : MonoBehaviour
     {
         StartCoroutine(APIManager.instancia.CargarPerfil( (resp) =>
         {
-            Debug.Log("resp: " + resp);
-
-            Debug.Log("resp.name: " + resp.name);
 
             if(resp != null && resp.name != null)
             {

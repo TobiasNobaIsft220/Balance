@@ -8091,6 +8091,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47dc7a2fd152aa94dac018692c9d0c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Script_Menu
+  accountButton: {fileID: 1739423582}
+  loginButton: {fileID: 1544308248}
 --- !u!1 &2075652138
 GameObject:
   m_ObjectHideFlags: 0
