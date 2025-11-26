@@ -1772,6 +1772,8 @@ MonoBehaviour:
   emailInput: {fileID: 1346846735}
   passwordInput: {fileID: 546910099}
   mensaje: {fileID: 1689373735}
+  accountButton: {fileID: 1739423582}
+  loginButton: {fileID: 1544308248}
 --- !u!1 &523759731
 GameObject:
   m_ObjectHideFlags: 0
@@ -4050,6 +4052,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1013019095}
   m_CullTransparentMesh: 1
+--- !u!1 &1031952130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1031952132}
+  - component: {fileID: 1031952131}
+  - component: {fileID: 1031952133}
+  m_Layer: 0
+  m_Name: APIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1031952131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031952130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c567217a50120ab419739e1a93d9040a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::APIManager
+--- !u!4 &1031952132
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031952130}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.64289, y: 3.17572, z: -1.7239}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1031952133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031952130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c321f876d4feb1348be8322ae55d06d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AuthManager
 --- !u!1 &1065513187
 GameObject:
   m_ObjectHideFlags: 0
@@ -4356,6 +4415,18 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 523420812}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1065513187}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -6939,7 +7010,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -7133,12 +7204,12 @@ GameObject:
   - component: {fileID: 1739423585}
   - component: {fileID: 1739423584}
   m_Layer: 5
-  m_Name: Acount Button
+  m_Name: Account Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1739423583
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7884,8 +7955,6 @@ GameObject:
   - component: {fileID: 2037485894}
   - component: {fileID: 2037485893}
   - component: {fileID: 2037485897}
-  - component: {fileID: 2037485898}
-  - component: {fileID: 2037485899}
   m_Layer: 5
   m_Name: Menu Canvas
   m_TagString: Untagged
@@ -7993,36 +8062,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47dc7a2fd152aa94dac018692c9d0c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Script_Menu
---- !u!114 &2037485898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2037485892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c321f876d4feb1348be8322ae55d06d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AuthManager
---- !u!114 &2037485899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2037485892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c567217a50120ab419739e1a93d9040a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::APIManager
-  idUsuario: 0
-  emailUsuario: 
-  nombreUsuario: 
-  mejorPuntaje: 0
-  ultimoPuntaje: 0
-  partidasJugadas: 0
 --- !u!1 &2075652138
 GameObject:
   m_ObjectHideFlags: 0
@@ -8493,3 +8532,4 @@ SceneRoots:
   - {fileID: 2037485896}
   - {fileID: 409300467}
   - {fileID: 1175118889}
+  - {fileID: 1031952132}

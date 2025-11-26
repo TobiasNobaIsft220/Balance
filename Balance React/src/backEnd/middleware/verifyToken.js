@@ -20,5 +20,5 @@ export function verifyToken(req, res, next){
         }
         req.usuario = decoded;
         next();
-    })
+    });
 }

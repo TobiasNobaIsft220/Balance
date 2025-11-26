@@ -7,18 +7,29 @@ public class LoginUI : MonoBehaviour
     public TMP_InputField passwordInput;
     public TMP_Text mensaje;
 
+    public GameObject accountButton;
+
+    public GameObject loginButton;
+
     public void OnLoginButton()
     {
         string email = emailInput.text;
         string password = passwordInput.text;
 
-        StartCoroutine(APIManager.instancia.Login(email, password, (ok, msg) =>
+        StartCoroutine(APIManager.instancia.Login(email, password, (resp) =>
         {
-            mensaje.text = msg;
-
-            if (ok)
+            if(resp != null && resp.usuario != null)
             {
-                UnityEngine.SceneManagement.SceneManager.LoadScene("Menu Scene");
+                mensaje.text = "¡Inicio de sesion exitoso! ¡Bienvenido " + resp.usuario.nombreDeUsuario + "!";
+
+                accountButton.SetActive(true);
+
+                loginButton.SetActive(false);
+
+            }
+            else
+            {
+                mensaje.text = "Error al iniciar sesion: Email o contraseña incorrectos." ;
             }
         }));
     }

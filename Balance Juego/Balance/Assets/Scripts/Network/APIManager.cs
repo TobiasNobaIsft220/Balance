@@ -3,21 +3,13 @@ using UnityEngine.Networking;
 using System.Collections;
 using System;
 
-public class APIManager : MonoBehaviour
-{
-    public static APIManager instancia;
 
+public class APIManager : MonoBehaviour {
+
+    public static APIManager instancia;
     private string URL_BASE = "http://localhost:3000/api/";
 
-    [Header("Usuario Logeado")]
-    public int id;
-    public string email;
-    public string name;
-    public int bestScore;
-    public int lastScore;
-    public int gamesPlayed;
-
-    void Awake()
+    private void Awake()
     {
         if (instancia == null)
         {
@@ -30,140 +22,105 @@ public class APIManager : MonoBehaviour
         }
     }
 
-    /* ===========================================================
-       LOGIN
-     =========================================================== */
-    public IEnumerator Login(string email, string password, Action<bool, string> callback)
-    {
-        WWWForm form = new WWWForm();
-        form.AddField("email", email);
-        form.AddField("password", password);
 
-        UnityWebRequest www = UnityWebRequest.Post(URL_BASE + "login", form);
+    //Login
 
-        yield return www.SendWebRequest();
+    [Serializable]
+    public class LoginRequest {
+        public string email;
+        public string password;
+    }
 
-        if (www.result != UnityWebRequest.Result.Success)
+    [Serializable]
+    public class UsuarioDTO {
+        public int id;
+        public string nombreDeUsuario;
+        public string email;
+    }
+
+    [Serializable]
+    public class LoginResponse {
+        public string message;
+        public string token;
+        public UsuarioDTO usuario;
+    }
+    public IEnumerator Login(string email, string password, Action<LoginResponse> onDone) {
+
+        //Pasar los datos a un objeto
+        var reqObj = new LoginRequest
         {
-            callback(false, "Error al conectar con el servidor");
-        }
-        else
-        {
-            var json = www.downloadHandler.text;
-            UsuarioResponse data = JsonUtility.FromJson<UsuarioResponse>(json);
+            email = email,
+            password = password 
+        };
 
-            if (data == null || data.usuario == null)
+        //Pasar los datos del objeto a json
+        string json = JsonUtility.ToJson(reqObj);
+
+        var uwr = new UnityWebRequest(URL_BASE + "login", "POST") {
+            uploadHandler = new UploadHandlerRaw(System.Text.Encoding.UTF8.GetBytes(json)),
+            downloadHandler = new DownloadHandlerBuffer()
+        };
+        
+        uwr.SetRequestHeader("Content-Type","application/json");
+
+        yield return uwr.SendWebRequest();
+
+        if (uwr.result == UnityWebRequest.Result.Success) {
+
+            var resp = JsonUtility.FromJson<LoginResponse>(uwr.downloadHandler.text);
+
+            if (resp != null && resp.usuario != null)
             {
-                callback(false, "Credenciales incorrectas");
+                PlayerPrefs.SetString("token", resp.token);
+                PlayerPrefs.SetString("username", resp.usuario.nombreDeUsuario);
+                PlayerPrefs.Save();
+            }
+
+            onDone?.Invoke(resp);
+            
+        } else {
+            Debug.LogError("Login error: " + uwr.error + " - " + uwr.downloadHandler.text);
+            onDone?.Invoke(null);
+        }
+    }
+
+    //Perfil
+    [Serializable]
+    public class UsuarioPerfil {
+        public int id;
+        public string name;
+        public string email;
+        public int bestScore;
+        public int lastScore;
+        public int gamesPlayed;
+
+    }
+
+    [Serializable]
+    public class PerfilResponse {
+        public UsuarioPerfil usuario;
+    }
+
+    public IEnumerator CargarPerfil(System.Action<UsuarioPerfil> onDone)
+    {
+        string token = PlayerPrefs.GetString("token", "");
+
+        using (UnityWebRequest uwr = UnityWebRequest.Get(URL_BASE + "perfil"))
+        {
+            uwr.SetRequestHeader("Authorization", "Bearer " + token);
+            yield return uwr.SendWebRequest();
+
+            if (uwr.result == UnityWebRequest.Result.Success)
+            {
+                var data = JsonUtility.FromJson<PerfilResponse>(uwr.downloadHandler.text);
+
+                onDone(data.usuario);
             }
             else
             {
-                id = data.usuario.id;
-                name = data.usuario.name;
-                email = data.usuario.email;
-                bestScore = data.usuario.bestScore;
-                lastScore = data.usuario.lastScore;
-                gamesPlayed = data.usuario.gamesPlayed;
-
-                // Guardar sesión en PlayerPrefs
-                PlayerPrefs.SetInt("usuarioActivo", id);
-
-                callback(true, "Login exitoso");
+                Debug.LogError("Error cargando perfil: " + uwr.error);
+                onDone(null);
             }
         }
     }
-
-    /* ===========================================================
-       OBTENER INFO DEL USUARIO
-     =========================================================== */
-    public IEnumerator ObtenerDatosUsuario(Action<bool> callback)
-    {
-        UnityWebRequest www = UnityWebRequest.Get(URL_BASE + idUsuario);
-
-        yield return www.SendWebRequest();
-
-        if (www.result != UnityWebRequest.Result.Success)
-        {
-            callback(false);
-        }
-        else
-        {
-            var json = www.downloadHandler.text;
-            Usuario data = JsonUtility.FromJson<Usuario>(json);
-
-            nombreUsuario = data.name;
-            emailUsuario = data.email;
-            mejorPuntaje = data.bestScore;
-            ultimoPuntaje = data.lastScore;
-            partidasJugadas = data.gamesPlayed;
-
-            callback(true);
-        }
-    }
-
-    /* ===========================================================
-       SUMAR PARTIDA JUGADA
-     =========================================================== */
-    public IEnumerator SumarPartida(Action<bool> callback)
-    {
-        WWWForm form = new WWWForm();
-        form.AddField("id", idUsuario);
-
-        UnityWebRequest www = UnityWebRequest.Post(URL_BASE + "sumarPartida", form);
-
-        yield return www.SendWebRequest();
-
-        callback(www.result == UnityWebRequest.Result.Success);
-    }
-
-    /* ===========================================================
-       GUARDAR ÚLTIMO PUNTAJE
-     =========================================================== */
-    public IEnumerator GuardarUltimoPuntaje(int score, Action<bool> callback)
-    {
-        WWWForm form = new WWWForm();
-        form.AddField("id", idUsuario);
-        form.AddField("ultimoPuntaje", score);
-
-        UnityWebRequest www = UnityWebRequest.Post(URL_BASE + "ultimoPuntaje", form);
-
-        yield return www.SendWebRequest();
-
-        callback(www.result == UnityWebRequest.Result.Success);
-    }
-
-    /* ===========================================================
-       ACTUALIZAR MEJOR PUNTAJE
-     =========================================================== */
-    public IEnumerator ActualizarMejorPuntaje(int nuevoScore, Action<bool> callback)
-    {
-        WWWForm form = new WWWForm();
-        form.AddField("id", id);
-        form.AddField("mejorPuntaje", nuevoScore);
-
-        UnityWebRequest www = UnityWebRequest.Post(URL_BASE + "mejorPuntaje", form);
-
-        yield return www.SendWebRequest();
-
-        callback(www.result == UnityWebRequest.Result.Success);
-    }
 }
-
-/* ============================================
-   CLASES PARA RECIBIR JSON
-============================================ */
-[Serializable]
-public class UsuarioResponse
-{
-    public string message;
-    public Usuario usuario;
-}
-
-[Serializable]
-public class Usuario
-{
-    public int id;
-    public string name;
-    public string email;
-}
-
