@@ -5,7 +5,8 @@ using TMPro;
 public class Script_Game_Over : MonoBehaviour
 {
 
-    private bool isGameOver = false; 
+    private bool isGameOver = false;
+    private bool scoreAlreadyUpdated = false;
     public GameObject gameOverPanel;
 
     [SerializeField] private TextMeshProUGUI finalScoreText;
@@ -22,7 +23,14 @@ public class Script_Game_Over : MonoBehaviour
 
     public void MostrarGameOver()
     {
-        isGameOver = true;
+        if (isGameOver)
+        {
+            return;
+        }
+        else
+        {
+            isGameOver = true;
+        }
 
         Time.timeScale = 0f;
         gameOverPanel.SetActive(true);
@@ -35,8 +43,14 @@ public class Script_Game_Over : MonoBehaviour
 
 
         //Muestra la puntuacion de la partida en el menu game over
-        float finalScore = PlayerPrefs.GetFloat("FinalScore", 0f);
+        int finalScore = PlayerPrefs.GetInt("FinalScore", 0);
         finalScoreText.text = "Puntuación final: " + Mathf.FloorToInt(finalScore).ToString();
+
+        if(!scoreAlreadyUpdated)
+        {
+            scoreAlreadyUpdated = true;
+            updateScoreGameOver(finalScore);
+        }
     }
 
     public void MenuPrincipal()
@@ -53,5 +67,10 @@ public class Script_Game_Over : MonoBehaviour
 
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void updateScoreGameOver(int finalScoreFunction)
+    {
+        StartCoroutine(APIManager.instancia.updateScore(finalScoreFunction));
     }
 }

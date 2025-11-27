@@ -131,3 +131,33 @@ export const leaderBoard = async (req, res) =>{
         res.status(500).json({message: "Error al obtener el leaderboard"})
     }
 }
+
+export const updateScore = async (req, res) => {
+    try {
+        const { puntaje } = req.body;
+
+        const usuario = await User.findOne({ id: req.usuario.id });
+
+        if (!usuario) {
+            return res.status(404).json({ message: "Usuario no encontrado" });
+        }
+
+        usuario.lastScore = puntaje;
+
+        if (puntaje > usuario.bestScore) {
+            usuario.bestScore = puntaje;
+        }
+
+        await usuario.save();
+
+        res.json({
+            message: "Puntaje actualizado",
+            mejorPuntaje: usuario.bestScore,
+            ultimoPuntaje: usuario.lastScore
+        });
+        
+    } catch (error) {
+        res.status(500).json({ message: "Error al actualizar puntaje" });
+    }
+};
+

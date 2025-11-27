@@ -123,4 +123,37 @@ public class APIManager : MonoBehaviour {
             }
         }
     }
+
+    //Actualizar puntaje
+    [Serializable]
+    public class PuntajeRequest {
+        public int puntaje;
+    }
+
+    public IEnumerator updateScore(int puntaje)
+    {
+        PuntajeRequest data = new PuntajeRequest { puntaje = puntaje };
+        string token = PlayerPrefs.GetString("token", "");
+
+        string json = JsonUtility.ToJson(data);
+
+        using (UnityWebRequest uwr = new UnityWebRequest(URL_BASE + "updateScore", "POST"))
+        {
+            uwr.uploadHandler = new UploadHandlerRaw(System.Text.Encoding.UTF8.GetBytes(json));
+            uwr.downloadHandler = new DownloadHandlerBuffer();
+            uwr.SetRequestHeader("Content-Type", "application/json");
+            uwr.SetRequestHeader("Authorization", "Bearer " + token);
+
+            yield return uwr.SendWebRequest();
+
+            if (uwr.result == UnityWebRequest.Result.Success)
+            {
+                Debug.Log("Puntaje actualizado correctamente");
+            }
+            else
+            {
+                Debug.LogError("Error enviando puntaje: " + uwr.error);
+            }
+        }
+    }
 }

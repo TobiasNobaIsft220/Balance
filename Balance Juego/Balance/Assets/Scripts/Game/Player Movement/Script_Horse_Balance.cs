@@ -36,7 +36,7 @@ public class Script_Horse_Balance : MonoBehaviour
             }
 
             //Guarda la puntuacion cuando el caballo se cae
-            PlayerPrefs.SetFloat("FinalScore", Script_Score_Manager.instance.score);
+            PlayerPrefs.SetInt("FinalScore", Mathf.FloorToInt(Script_Score_Manager.instance.score));
             PlayerPrefs.Save();
             Script_Score_Manager.instance.StopCounting();
             script_Game_Over_Caballo.MostrarGameOver();

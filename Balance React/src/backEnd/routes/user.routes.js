@@ -1,5 +1,5 @@
 import express from "express";
-import { showUsers, registerUser, loginUser, leaderBoard } from "../controllers/user.controller.js";
+import { showUsers, registerUser, loginUser, leaderBoard, updateScore} from "../controllers/user.controller.js";
 import { verifyToken } from "../middleware/verifyToken.js";
 import User from "../models/User.js";
 
@@ -22,5 +22,7 @@ router.get("/perfil", verifyToken, async (req, res) =>{
         res.status(500).json({message: "error al obtener el perfil"});
     }
 });
+
+router.post("/updateScore", verifyToken, updateScore);
 
 export default router;
