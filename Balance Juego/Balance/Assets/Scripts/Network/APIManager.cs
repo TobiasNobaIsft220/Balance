@@ -156,4 +156,38 @@ public class APIManager : MonoBehaviour {
             }
         }
     }
+
+    //Actualizar partidas jugadas
+    [Serializable]
+    public class PartidaResponse {
+        public string message;
+        public int gamesPlayed;
+    }
+
+    public IEnumerator SumarPartida(Action<int> onDone)
+    {
+        string token = PlayerPrefs.GetString("token", "");
+
+        using (UnityWebRequest uwr = UnityWebRequest.PostWwwForm(URL_BASE + "updateGamesPlayed", ""))
+        {
+            uwr.SetRequestHeader("Authorization", "Bearer " + token);
+
+            yield return uwr.SendWebRequest();
+
+            if (uwr.result == UnityWebRequest.Result.Success)
+            {
+                Debug.Log("Respuesta al sumar partida: " + uwr.downloadHandler.text);
+
+                // Clase temporal para parsear el JSON
+                PartidaResponse resp = JsonUtility.FromJson<PartidaResponse>(uwr.downloadHandler.text);
+
+                onDone(resp.gamesPlayed);
+            }
+            else
+            {
+                Debug.LogError("Error al sumar partida: " + uwr.error);
+                onDone(-1);
+            }
+        }
+    }
 }

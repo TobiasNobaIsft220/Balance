@@ -317,7 +317,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1387550162}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
@@ -2430,7 +2430,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 523420812}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
@@ -2794,7 +2794,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version 0.1.2
+  m_text: Version 0.2.0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a0f63a4910047d74bb903507e30cdeeb, type: 2}
   m_sharedMaterial: {fileID: 824127167511307599, guid: a0f63a4910047d74bb903507e30cdeeb, type: 2}
@@ -4412,7 +4412,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 523420812}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
@@ -6751,7 +6751,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1641612581
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8483,7 +8483,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1387550162}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine

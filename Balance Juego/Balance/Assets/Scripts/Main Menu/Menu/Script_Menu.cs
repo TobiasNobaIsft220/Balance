@@ -32,6 +32,15 @@ public class Script_Menu : MonoBehaviour
 
     public void Jugar()
     {
+
+        StartCoroutine(APIManager.instancia.SumarPartida((nuevoValor) =>
+        {
+            if (nuevoValor != -1)
+            {
+                Debug.Log("Partidas jugadas ahora: " + nuevoValor);
+            }
+        }));
+
         SceneManager.LoadScene("Game Scene");
     }
 

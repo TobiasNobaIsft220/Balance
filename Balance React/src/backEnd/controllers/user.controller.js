@@ -120,6 +120,15 @@ export const loginUser = async (req, res) => {
     }
 };
 
+export const showPerfil = async (req, res) =>{
+    try{
+        const usuario = await User.findOne({id: req.usuario.id});
+        res.json({usuario});
+    }catch(error){
+        res.status(500).json({message: "error al obtener el perfil"});
+    }
+}
+
 export const leaderBoard = async (req, res) =>{
     try{
         const ranking = await User.find()
@@ -161,3 +170,19 @@ export const updateScore = async (req, res) => {
     }
 };
 
+export const updateGamesPlayed = async (req, res) =>{
+    try {
+        const usuario = await User.findOne({ id: req.usuario.id });
+
+        if (!usuario) {
+            return res.status(404).json({ message: "Usuario no encontrado" });
+        }
+
+        usuario.gamesPlayed += 1;
+        await usuario.save();
+
+        res.json({ message: "Partida sumada", gamesPlayed: usuario.gamesPlayed });
+    } catch (error) {
+        res.status(500).json({ message: "Error al actualizar partidas" });
+    }
+};

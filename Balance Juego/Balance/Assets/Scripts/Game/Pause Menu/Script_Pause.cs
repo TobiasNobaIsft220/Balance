@@ -79,6 +79,15 @@ public class Script_Pause : MonoBehaviour
         isPaused = false;
 
         Time.timeScale = 1f;
+
+        StartCoroutine(APIManager.instancia.SumarPartida((nuevoValor) =>
+        {
+            if (nuevoValor != -1)
+            {
+                Debug.Log("Partidas jugadas ahora: " + nuevoValor);
+            }
+        }));
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     
