@@ -1,5 +1,8 @@
 using UnityEngine;
 
+//Archivo aparentemente innecesario
+
+/*
 public class AuthManager : MonoBehaviour
 {
     public static AuthManager Instance;
@@ -13,7 +16,6 @@ public class AuthManager : MonoBehaviour
 
     private void Awake()
     {
-        // Singleton
         if (Instance == null)
         {
             Instance = this;
@@ -26,7 +28,7 @@ public class AuthManager : MonoBehaviour
         }
     }
 
-    // Se llama desde ApiManager cuando el login fue exitoso
+    //Se llama desde ApiManager cuando el login fue exitoso
     public void GuardarSesion(string token, UserData userData)
     {
         Token = token;
@@ -38,7 +40,7 @@ public class AuthManager : MonoBehaviour
         Debug.Log("Sesión guardada correctamente");
     }
 
-    // Busca si había un token guardado
+    //Busca si había un token guardado
     private void CargarSesion()
     {
         if (PlayerPrefs.HasKey(TOKEN_KEY))
@@ -48,7 +50,7 @@ public class AuthManager : MonoBehaviour
         }
     }
 
-    // Se puede usar para cerrar sesión
+    //Se puede usar para cerrar sesión
     public void CerrarSesion()
     {
         Token = null;
@@ -68,7 +70,7 @@ public class AuthManager : MonoBehaviour
     }
 }
 
-// Clase auxiliar que representa el usuario que viene desde la API
+//Clase auxiliar que representa el usuario que viene desde la API
 [System.Serializable]
 public class UserData
 {
@@ -78,4 +80,4 @@ public class UserData
     public int bestScore;
     public int lastScore;
     public int gamesPlayed;
-}
+}*/
