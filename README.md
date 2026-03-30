@@ -3,7 +3,7 @@
 Un juego inspirado en el caballo y animador James Baxter de hora de aventura, el que consiste en tratar de mantener el equilibrio de caballo encima de una pelota.
 
 ---
-# 📸 Gif del juego
+# 📸 Imagen del juego
 ![Imagen del juego](MuestraBalance.PNG)
 ---
 
