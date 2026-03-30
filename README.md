@@ -4,7 +4,7 @@ Un juego inspirado en el caballo y animador James Baxter de hora de aventura, el
 
 ---
 # 📸 Gif del juego
-![Imagen del juego](Balance React/img/BalanceHomePageGifCorto(Convertido).gif)
+![Imagen del juego](Balance React/img/Logo-Balance.png)
 ---
 
 ## 📌 Descripción del proyecto
